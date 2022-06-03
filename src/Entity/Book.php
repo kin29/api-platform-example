@@ -26,7 +26,7 @@ class Book
     #[ORM\Column(type: 'string', length: 255)]
     private string $author = '';
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTimeImmutable $publicationDate = null;
 
     /** @var Review[] */
