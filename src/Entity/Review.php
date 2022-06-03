@@ -8,7 +8,9 @@ use App\Repository\ReviewRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    itemOperations: ['get', 'put'] //デフォだとGET,PUT,DELETE,PATCHがあるので、DELETE,PATCHはいらないのでこれを設定
+)]
 class Review
 {
     #[ORM\Id]

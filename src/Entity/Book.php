@@ -9,7 +9,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    itemOperations: ['get', 'put'] //デフォだとGET,PUT,DELETE,PATCHがあるので、DELETE,PATCHはいらないのでこれを設定
+)]
 class Book
 {
     #[ORM\Id]
