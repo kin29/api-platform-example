@@ -28,6 +28,9 @@ class Review
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private ?\DateTimeImmutable $publicationDate = null;
 
+    #[ORM\ManyToOne(targetEntity: Book::class, inversedBy: 'reviews')]
+    private ?Book $book = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +80,18 @@ class Review
     public function setPublicationDate(?\DateTimeImmutable $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
+
+        return $this;
+    }
+
+    public function getBook(): ?Book
+    {
+        return $this->book;
+    }
+
+    public function setBook(?Book $book): self
+    {
+        $this->book = $book;
 
         return $this;
     }
