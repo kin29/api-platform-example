@@ -27,7 +27,7 @@ class Book
     private string $author = '';
 
     #[ORM\Column(type: 'date', nullable: true)]
-    private ?\DateTimeImmutable $publicationDate = null;
+    private ?\DateTime $publicationDate = null;
 
     /** @var Review[] */
     #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, cascade: ['persist', 'remove'])]
@@ -79,12 +79,12 @@ class Book
         return $this;
     }
 
-    public function getPublicationDate(): ?\DateTimeImmutable
+    public function getPublicationDate(): ?\DateTime
     {
         return $this->publicationDate;
     }
 
-    public function setPublicationDate(?\DateTimeImmutable $publicationDate): self
+    public function setPublicationDate(?\DateTime $publicationDate): self
     {
         $this->publicationDate = $publicationDate;
 
